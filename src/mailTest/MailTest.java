@@ -8,8 +8,10 @@ import javax.activation.*;
 public class MailTest {
     public static void main(String[] args) {
 
-        final String username = <passwords.env>;
-        final String password = <passwords.env>;
+
+
+        final String username = System.getProperty("USERNAME");
+        final String password = System.getProperty("PASSWORD");
 
         Properties prop = new Properties();
 		prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -33,8 +35,8 @@ public class MailTest {
                     InternetAddress.parse("pburkepro@gmail.com, pburkepro@outlook.com")
             );
             message.setSubject("Testing Gmail TLS");
-            message.setText("Dear Mail Crawler,"
-                    + "\n\n Please do not spam my email!");
+            message.setText("Hello Patrick,"
+                    + "\n\n It's great to speak with you!");
 
             Transport.send(message);
 
